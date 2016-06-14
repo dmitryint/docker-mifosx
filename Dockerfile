@@ -10,6 +10,9 @@ RUN apt-get update \
 	&& apt-get install -y mysql-client \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN mkdir -p /run/mysqld \
+	&& chown 999 /run/mysqld
+
 RUN mkdir -p /app /docker-entrypoint-initdb.d \
 	&& cd /app \
 	&& wget http://tenet.dl.sourceforge.net/project/mifos/Mifos%20X/fineractplatform-16.03.03.RELEASE.zip \
