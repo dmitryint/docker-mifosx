@@ -6,5 +6,5 @@ while ! mysqladmin ping -h"mysql" --silent; do
     echo "Waiting database..."
 done
 
-$@
+catalina.sh run
 
