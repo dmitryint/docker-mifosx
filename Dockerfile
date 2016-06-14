@@ -18,7 +18,6 @@ RUN mkdir -p /app /docker-entrypoint-initdb.d \
 	&& mv fineractplatform-16.03.03.RELEASE/apps/community-app /usr/local/tomcat/webapps/ \
 	&& mv fineractplatform-16.03.03.RELEASE/database/mifospltaform-tenants-first-time-install.sql /docker-entrypoint-initdb.d/ \
 	&& sed -i '1s/^/USE mifostenant-default;\n/' /docker-entrypoint-initdb.d/mifospltaform-tenants-first-time-install.sql \
-	&& sed -i -e 's/localhost/mysql/g' /docker-entrypoint-initdb.d/mifospltaform-tenants-first-time-install.sql \
 	&& wget http://central.maven.org/maven2/org/drizzle/jdbc/drizzle-jdbc/1.3/drizzle-jdbc-1.3.jar \
 	&& mv drizzle-jdbc-1.3.jar /usr/local/tomcat/lib \
 	&& cd / \
